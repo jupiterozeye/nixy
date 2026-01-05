@@ -61,6 +61,7 @@
       pnpm
       air
       duckdb
+      opencode
 
       # Just cool
       peaclock
