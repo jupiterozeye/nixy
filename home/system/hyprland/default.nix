@@ -135,10 +135,13 @@ in {
       gesture = "3, horizontal, workspace";
 
       windowrule = [
-        "match:class mullvad-vpn, float on"
-        "match:class mullvad-vpn, suppress_event maximize"
-        "match:class mullvad-vpn, center on"
-        "match:class mullvad-vpn, size 500 400"
+        "match:class proton-authenticator, float on"
+        "match:class proton-authenticator, suppress_event maximize"
+        "match:class proton-authenticator, center on"
+        "match:class proton-authenticator, size 500 400"
+        "match:class protonvpn-app, float on"
+        "match:class protonvpn-app, center on"
+        "match:class protonvpn-app, size 500 400"
       ];
 
       misc = {
