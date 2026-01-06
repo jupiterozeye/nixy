@@ -18,7 +18,7 @@ in {
   systemd.services.NetworkManager-wait-online.enable = false;
   networking.nameservers = ["1.1.1.1#one.one.one.one" "1.0.0.1#one.one.one.one"];
 
-  servies.hardware.bolt.enable = true;
+  services.hardware.bolt.enable = true;
   services.resolved = {
     enable = true;
     dnssec = "true";
