@@ -1,6 +1,13 @@
 # Systemd-boot configuration for NixOS
-{pkgs, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   boot = {
+    blacklistedKernelModules = ["r8169"];
+    kernelModules = ["r8168"];
+    extraModulePackages = with config.boot.kernelPackages; [r8168];
     bootspec.enable = true;
     loader = {
       efi.canTouchEfiVariables = true;
