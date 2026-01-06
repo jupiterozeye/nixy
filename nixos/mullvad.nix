@@ -9,7 +9,7 @@
       builtins.toJSON {
         allow_lan = true;
         auto_connect = true;
-        block_when_disconnected = true;
+        block_when_disconnected = false;
 
         api_access_methods = {
           custom = [];
