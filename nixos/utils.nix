@@ -39,6 +39,12 @@ in {
       --block-ads --block-trackers --block-malware
   '';
 
+  services.tlp.enable = true;
+
+  services.tlp.settings = {
+    USB_AUTOSUSPEND = 0;
+  };
+
   system.autoUpgrade = {
     enable = autoUpgrade;
     dates = "04:00";
@@ -95,7 +101,7 @@ in {
     };
     gvfs.enable = true;
     upower.enable = true;
-    power-profiles-daemon.enable = true;
+    power-profiles-daemon.enable = false;
     udisks2.enable = true;
   };
 
