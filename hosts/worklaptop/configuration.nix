@@ -15,7 +15,6 @@
     ../../nixos/hyprland.nix
     ../../nixos/docker.nix
 
-
     # You should let those lines as is
     ./hardware-configuration.nix
     ./variables.nix

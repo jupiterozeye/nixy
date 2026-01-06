@@ -6,9 +6,7 @@
   imports = [
     # Programs
     ../../home/programs/brave
-    ../../home/programs/mullvad
     ../../home/programs/bitwarden
-    ../../home/programs/mullvad
     ../../home/programs/ghostty
     ../../home/programs/nvf
     ../../home/programs/shell

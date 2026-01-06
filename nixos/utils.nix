@@ -111,6 +111,8 @@ in {
   };
 
   environment.systemPackages = with pkgs; [
+    mullvad-vpn
+    mullvad
     fd
     bc
     gcc
