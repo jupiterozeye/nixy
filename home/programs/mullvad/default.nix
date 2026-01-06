@@ -4,9 +4,9 @@
     mullvad-browser
   ];
 
-  # Auto-statrt Proton VPN
+  # Auto-start mullvad VPN
 
   wayland.windowManager.hyprland.settings.exec-once = [
-    "mullvad-vpn-app --start-minimized &"
+    "mullvad-daemon --start-minimized &"
   ];
 }
