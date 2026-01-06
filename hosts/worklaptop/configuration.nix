@@ -14,6 +14,7 @@
     ../../nixos/tailscale.nix
     ../../nixos/hyprland.nix
     ../../nixos/docker.nix
+    ../../nixos/mullvad.nix
 
     # You should let those lines as is
     ./hardware-configuration.nix
