@@ -7,6 +7,8 @@
     # Programs
     ../../home/programs/brave
     ../../home/programs/proton
+    ../../home/programs/bitwarden
+    ../../home/programs/mullvad
     ../../home/programs/ghostty
     ../../home/programs/nvf
     ../../home/programs/shell
@@ -45,7 +47,6 @@
       gnome-text-editor # Basic graphic text editor
       mpv # Video player
       ticktick # Todo app
-      session-desktop # Session app, private messages
       signal-desktop # Signal app, private messages
       stirling-pdf # TODO: Server version
       calibre
@@ -71,8 +72,6 @@
       fastfetch
 
       # Backup
-      vscode
-      vivaldi
     ];
 
     inherit (config.var) username;
