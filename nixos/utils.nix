@@ -48,7 +48,7 @@ in {
   };
 
   services = {
-    mullvad.enable = true;
+    #mullvad-vpn.enable = true;
     xserver = {
       enable = true;
       xkb.layout = keyboardLayout;
@@ -100,6 +100,7 @@ in {
 
   environment.systemPackages = with pkgs; [
     bolt
+    mullvad
     fd
     bc
     gcc
