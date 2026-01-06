@@ -16,6 +16,17 @@ in {
 
   networking.networkmanager.enable = true;
   systemd.services.NetworkManager-wait-online.enable = false;
+  systemd.services.resolved = true;
+  systemd.services."mullvad-daemon".postStart = let
+    mullvad = config.services.mullvad-vpn.package;
+  in ''
+    while ! ${mullvad}/bin/mullvad status >/dev/null; do sleep 1; done
+
+    ${mullvad}/bin/mullvad auto-connect set on
+    ${mullvad}/bin/mullvad tunnel ipv6 set on
+    ${mullvad}/bin/mullvad set default \
+      --block-ads --block-trackers --block-malware
+  '';
 
   system.autoUpgrade = {
     enable = autoUpgrade;
