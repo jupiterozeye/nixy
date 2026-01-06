@@ -1,7 +1,6 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
     mullvad-vpn
-    mullvad
   ];
 
   # Auto-statrt Proton VPN
