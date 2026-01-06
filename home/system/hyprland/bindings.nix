@@ -7,9 +7,9 @@
       [
         "$mod,RETURN, exec, uwsm app -- ${pkgs.ghostty}/bin/ghostty" # Ghostty (terminal)
         "$mod,E, exec,  uwsm app -- ${pkgs.xfce.thunar}/bin/thunar" # Thunar
-        "$mod,B, exec,  uwsm app -- ${pkgs.mullvad-browser}/bin/mullvad-browser" # Browser (Brave)
-        "$mod,K, exec,  uwsm app -- ${pkgs.bitwarden}/bin/bitwarden" # Proton Pass
-        "$mod,V, exec,  uwsm app -- ${pkgs.mullvad-vpn}/bin/mullvad-vpn" # Proton VPN
+        "$mod,B, exec,  uwsm app -- ${pkgs.mullvad-browser}/bin/mullvad-browser" # Browser
+        "$mod,K, exec,  uwsm app -- ${pkgs.bitwarden}/bin/bitwarden-desktop" # Bitwarden
+        "$mod,V, exec,  uwsm app -- ${pkgs.mullvad-vpn}/bin/mullvad-vpn" # VPN
 
         "$mod,Q, killactive," # Close window
         "$mod,T, togglefloating," # Toggle Floating
