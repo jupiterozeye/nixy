@@ -29,7 +29,9 @@ in {
   systemd.services."mullvad-daemon".postStart = let
     mullvad = config.services.mullvad-vpn.package;
   in ''
-    while ! ${mullvad}/bin/mullvad status >/dev/null; do sleep 1; done
+    while [ ! -S /var/run/mullvad-vpn ]; do sleep 1; done
+
+    while ! ${mullvad} status >/dev/null; do sleep 1; done
 
     ${mullvad}/bin/mullvad auto-connect set on
     ${mullvad}/bin/mullvad tunnel ipv6 set on
