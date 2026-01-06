@@ -120,8 +120,7 @@ in {
   };
 
   environment.systemPackages = with pkgs; [
-    mullvad-vpn
-    mullvad
+    bolt
     fd
     bc
     gcc
