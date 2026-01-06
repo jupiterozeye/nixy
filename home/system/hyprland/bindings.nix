@@ -9,7 +9,7 @@
         "$mod,E, exec,  uwsm app -- ${pkgs.xfce.thunar}/bin/thunar" # Thunar
         "$mod,B, exec,  uwsm app -- ${pkgs.mullvad-browser}/bin/mullvad-browser" # Browser
         "$mod,K, exec,  uwsm app -- ${pkgs.bitwarden-desktop}/bin/bitwarden" # Bitwarden
-        "$mod,V, exec,  uwsm app -- ${pkgs.mullvad-vpn}/bin/mullvad-vpn" # VPN
+        "$mod,V, exec,  uwsm app -- ${pkgs.mullvad}/bin/mullvad" # VPN
 
         "$mod,Q, killactive," # Close window
         "$mod,T, togglefloating," # Toggle Floating

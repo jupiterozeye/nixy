@@ -48,7 +48,7 @@ in {
   };
 
   services = {
-    mullvad-vpn.enable = true;
+    mullvad.enable = true;
     xserver = {
       enable = true;
       xkb.layout = keyboardLayout;
