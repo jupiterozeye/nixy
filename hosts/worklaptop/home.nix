@@ -53,7 +53,6 @@
       # Dev
       go
       bun
-      docker
       nodejs
       python3
       jq
@@ -62,6 +61,7 @@
       air
       duckdb
       opencode
+      distrobox
 
       # Just cool
       peaclock
@@ -77,7 +77,8 @@
     homeDirectory = "/home/" + config.var.username;
 
     # Import a profile picture, used by the caelestia dashboard
-    file.".face" = {source = ./profile_picture.png;};
+    file.".face" = {source = ./jupiter.png;};
+    file.".local/state/caelestia/wallpaper/path.txt".text = "";
 
     # Don't touch this
     stateVersion = "24.05";

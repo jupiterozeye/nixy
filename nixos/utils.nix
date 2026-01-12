@@ -20,13 +20,7 @@ in {
 
   services.hardware.bolt.enable = true;
 
-  services.tlp.enable = true;
-
   services.resolved.enable = true;
-
-  services.tlp.settings = {
-    USB_AUTOSUSPEND = 0;
-  };
 
   system.autoUpgrade = {
     enable = autoUpgrade;
@@ -84,7 +78,7 @@ in {
     };
     gvfs.enable = true;
     upower.enable = true;
-    power-profiles-daemon.enable = false;
+    power-profiles-daemon.enable = true;
     udisks2.enable = true;
   };
 
@@ -103,6 +97,7 @@ in {
 
   environment.systemPackages = with pkgs; [
     bolt
+    ffmpeg
     mullvad
     fd
     bc
@@ -130,10 +125,12 @@ in {
     xdgOpenUsePortal = true;
     config = {
       common.default = ["gtk"];
-      hyprland.default = ["gtk" "hyprland"];
+      hyprland.default = ["hyprland" "gtk"];
     };
 
-    extraPortals = [pkgs.xdg-desktop-portal-gtk];
+    extraPortals = [
+      pkgs.xdg-desktop-portal-gtk
+    ];
   };
 
   security = {

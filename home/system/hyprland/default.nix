@@ -91,7 +91,7 @@ in {
         "WLR_NO_HARDWARE_CURSORS,1"
         "SDL_VIDEODRIVER,wayland"
         "CLUTTER_BACKEND,wayland"
-        "AQ_DRM_DEVICES,/dev/dri/card2:/dev/dri/card1" # CHANGEME: Related to the GPU
+        "AQ_DRM_DEVICES,/dev/dri/by-path/pci-0000:c7:00.0-card:/dev/dri/by-path/pci-0000:01:00.0-card"
       ];
 
       cursor = {
