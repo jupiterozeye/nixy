@@ -27,22 +27,22 @@
 
     # See https://tinted-theming.github.io/tinted-gallery/ for more schemes
     base16Scheme = {
-      base00 = "151320"; # Default Background
-      base01 = "1f1d2e"; # Lighter Background (Used for status bars, line number and folding marks)
-      base02 = "26233a"; # Selection Background
-      base03 = "6e6a86"; # Comments, Invisibles, Line Highlighting
-      base04 = "908caa"; # Dark Foreground (Used for status bars)
-      base05 = "e0def4"; # Default Foreground, Caret, Delimiters, Operators
-      base06 = "e0def4"; # Light Foreground (Not often used)
-      base07 = "524f67"; # Light Background (Not often used)
-      base08 = "eb6f92"; # Variables, XML Tags, Markup Link Text, Markup Lists, Diff Deleted
-      base09 = "f6c177"; # Integers, Boolean, Constants, XML Attributes, Markup Link Url
-      base0A = "ebbcba"; # Classes, Markup Bold, Search Text Background
-      base0B = "31748f"; # Strings, Inherited Class, Markup Code, Diff Inserted
-      base0C = "9ccfd8"; # Support, Regular Expressions, Escape Characters, Markup Quotes
-      base0D = "c4a7e7"; # Functions, Methods, Attribute IDs, Headings, Accent color
-      base0E = "f6c177"; # Keywords, Storage, Selector, Markup Italic, Diff Changed
-      base0F = "524f67"; # Deprecated, Opening/Closing Embedded Language Tags, e.g. <?php ?>
+      base00 = "0b0e14"; # Default Background
+      base01 = "131721"; # Lighter Background (Used for status bars, line number and folding marks)
+      base02 = "202229"; # Selection Background
+      base03 = "3e4b59"; # Comments, Invisibles, Line Highlighting
+      base04 = "bfbdb6"; # Dark Foreground (Used for status bars)
+      base05 = "e6e1cf"; # Default Foreground, Caret, Delimiters, Operators
+      base06 = "ece8db"; # Light Foreground (Not often used)
+      base07 = "f2f0e7"; # Light Background (Not often used)
+      base08 = "f07178"; # Variables, XML Tags, Markup Link Text, Markup Lists, Diff Deleted
+      base09 = "ff8f40"; # Integers, Boolean, Constants, XML Attributes, Markup Link Url
+      base0A = "ffb454"; # Classes, Markup Bold, Search Text Background
+      base0B = "aad94c"; # Strings, Inherited Class, Markup Code, Diff Inserted
+      base0C = "95e6cb"; # Support, Regular Expressions, Escape Characters, Markup Quotes
+      base0D = "59c2ff"; # Functions, Methods, Attribute IDs, Headings, Accent color
+      base0E = "d2a6ff"; # Keywords, Storage, Selector, Markup Italic, Diff Changed
+      base0F = "e6b450"; # Deprecated, Opening/Closing Embedded Language Tags, e.g. <?php ?>
     };
 
     cursor = {
@@ -75,8 +75,8 @@
 
     polarity = "dark";
     image = pkgs.fetchurl {
-      url = "https://github.com/anotherhadi/awesome-wallpapers/blob/7d8552bc4a6a4e6b54cd6988fc1f87439057d3d4/app/static/wallpapers/it-is-the-ocean.png";
-      sha256 = "sha256-IvINf62mg9rKjml4sh8hl/j7UHrQQlbm6QnZTaI+TRk=";
+      url = "https://raw.githubusercontent.com/anotherhadi/awesome-wallpapers/refs/heads/main/app/static/wallpapers/mosaic_dark.png";
+      sha256 = "sha256-gLcCBLDxlQqB7AgOnhtPnRlGV+tfwBORZATNLcB7xSs=";
     };
   };
 }

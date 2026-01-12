@@ -16,10 +16,13 @@ in {
 
   networking.networkmanager.enable = true;
   systemd.services.NetworkManager-wait-online.enable = false;
+  networking.networkmanager.dns = "systemd-resolved";
 
   services.hardware.bolt.enable = true;
 
   services.tlp.enable = true;
+
+  services.resolved.enable = true;
 
   services.tlp.settings = {
     USB_AUTOSUSPEND = 0;

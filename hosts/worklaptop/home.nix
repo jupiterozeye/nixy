@@ -48,6 +48,7 @@
       signal-desktop # Signal app, private messages
       stirling-pdf # TODO: Server version
       calibre
+      p2pool
 
       # Dev
       go

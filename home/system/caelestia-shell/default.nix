@@ -33,13 +33,13 @@
     cli = {
       enable = true;
       settings.theme = {
-        enableTerm = false;
+        enableTerm = true;
         enableDiscord = false;
         enableSpicetify = false;
         enableBtop = false;
         enableCava = false;
-        enableHypr = false;
-        enableGtk = false;
+        enableHypr = true;
+        enableGtk = true;
         enableQt = false;
       };
     };
