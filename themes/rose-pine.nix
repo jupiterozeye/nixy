@@ -75,8 +75,8 @@
 
     polarity = "dark";
     image = pkgs.fetchurl {
-      url = "https://github.com/anotherhadi/awesome-wallpapers/blob/7d8552bc4a6a4e6b54cd6988fc1f87439057d3d4/app/static/wallpapers/it-is-the-ocean.png";
-      sha256 = "sha256-IvINf62mg9rKjml4sh8hl/j7UHrQQlbm6QnZTaI+TRk=";
+      url = "https://raw.githubusercontent.com/anotherhadi/awesome-wallpapers/7d8552bc4a6a4e6b54cd6988fc1f87439057d3d4/app/static/wallpapers/it-is-the-ocean.png";
+      sha256 = "sha256-y+UglCUALFOskp3ljKI3/Wgf/V+cF1yDeEnNF4W9mcU=";
     };
   };
 }
