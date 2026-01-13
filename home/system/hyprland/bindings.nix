@@ -7,9 +7,8 @@
       [
         "$mod,RETURN, exec, uwsm app -- ${pkgs.ghostty}/bin/ghostty" # Ghostty (terminal)
         "$mod,E, exec,  uwsm app -- ${pkgs.thunar}/bin/thunar" # Thunar
-        "$mod,B, exec,  uwsm app -- ${pkgs.mullvad-browser}/bin/mullvad-browser" # Browser
+        "$mod,B, exec,  uwsm app -- ${pkgs.brave}/bin/brave" # Browser
         "$mod,K, exec,  uwsm app -- ${pkgs.bitwarden-desktop}/bin/bitwarden" # Bitwarden
-        "$mod,V, exec,  uwsm app -- ${pkgs.mullvad}/bin/mullvad" # VPN
 
         "$mod,Q, killactive," # Close window
         "$mod,T, togglefloating," # Toggle Floating

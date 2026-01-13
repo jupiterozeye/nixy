@@ -66,7 +66,7 @@ in {
         "DP-9,1920x1080@60,0x0,1" # Far left 1080p
         "DP-10,1920x1080@60,1920x0,1" # Center-left 1080p
         "eDP-1,1920x1200@60,1920x1080,1" # Laptop below DP-9
-        "DP-8,3840x2160@60,3840x0,1" # Far right 4K
+        "DP-8,3840x2160@60,3840x0,1.5" # Far right 4K
         ",preferred,auto,1" # Default fallback
       ];
 

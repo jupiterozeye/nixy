@@ -14,6 +14,7 @@
     ../../nixos/tailscale.nix
     ../../nixos/hyprland.nix
     ../../nixos/podman.nix
+    ../../nixos/local-network-routes.nix
     # ../../nixos/mullvad.nix
 
     # You should let those lines as is

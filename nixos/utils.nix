@@ -99,6 +99,7 @@ in {
     bolt
     ffmpeg
     mullvad
+    mullvad-browser
     fd
     bc
     gcc
