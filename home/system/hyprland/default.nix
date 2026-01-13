@@ -63,10 +63,11 @@ in {
       #];
 
       monitor = [
-        "eDP-2,highres,0x0,1" # My internal laptop screen
-        "desc:AOC U34G2G1 0x00000E06,3440x1440@99.98,auto,1" # My external monitor
-        "desc:United Microelectr Corporation UMC SHARP,3840x2160,auto,2" # TV
-        ",prefered,auto,1" # default
+        "DP-9,1920x1080@60,0x0,1" # Far left 1080p
+        "DP-10,1920x1080@60,1920x0,1" # Center-left 1080p
+        "eDP-1,1920x1200@60,1920x1080,1" # Laptop below DP-9
+        "DP-8,3840x2160@60,3840x0,1" # Far right 4K
+        ",preferred,auto,1" # Default fallback
       ];
 
       env = [
@@ -91,9 +92,9 @@ in {
         "WLR_NO_HARDWARE_CURSORS,1"
         "SDL_VIDEODRIVER,wayland"
         "CLUTTER_BACKEND,wayland"
-        "AQ_DRM_DEVICES,/dev/dri/card2:/dev/dri/card1"
+        "AQ_DRM_DEVICES,/dev/dri/card1:/dev/dri/card2"
         "AQ_MGPU_NO_DIRECT_SCANOUT,1"
-        "QT_WAYLAND_FORCE_DPI,physical" # Prevents slow font-scaling calculations
+        "QT_WAYLAND_FORCE_DPI,96" # Use fixed DPI to prevent huge SVG buffer allocations
         "QS_RENDER_SOFTWARE,0" # Force hardware acceleration for Quickshell
         "QS_BATCH_RENDER,1" # Improves frame pacing
       ];

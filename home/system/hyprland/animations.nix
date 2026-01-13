@@ -40,10 +40,10 @@ in {
         "windowsOut, 1, ${animationDuration}, md3_accel, popin 60%"
         "border, 1, ${borderDuration}, default"
         "fade, 1, ${animationDuration}, md3_decel"
-        "layersIn, 1, ${animationDuration}, menu_decel, slide"
-        "layersOut, 1, ${animationDuration}, menu_accel"
-        "fadeLayersIn, 1, ${animationDuration}, menu_decel"
-        "fadeLayersOut, 1, ${animationDuration}, menu_accel"
+        "layersIn, 0" # Disabled - instant layer appearance
+        "layersOut, 0" # Disabled - instant layer disappearance  
+        "fadeLayersIn, 0" # Disabled
+        "fadeLayersOut, 0" # Disabled
         "workspaces, 1, ${animationDuration}, menu_decel, slide"
         "specialWorkspace, 1, ${animationDuration}, md3_decel, slidevert"
       ];

@@ -54,7 +54,7 @@ in {
       };
       modesetting.enable = true; # Required for Wayland
       package = nvidiaDriverChannel;
-      forceFullCompositionPipeline = true; # Prevents screen tearing
+      # forceFullCompositionPipeline = true; # Xorg-only option, not applicable to Wayland
 
       # Configuration for hybrid AMD+Nvidia laptop
       prime = {
