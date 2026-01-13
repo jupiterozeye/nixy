@@ -86,6 +86,10 @@ with lib; let
 in {
   xdg = {
     configFile."mimeapps.list".force = true;
+    configFile."xdg-desktop-portal/portals.conf".text = ''
+      [preferred]
+      default=hyprland;gtk
+    '';
     mimeApps = {
       enable = true;
       associations.added = associations;

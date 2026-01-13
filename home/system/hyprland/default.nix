@@ -58,9 +58,9 @@ in {
     portalPackage = null;
 
     settings = {
-      exec-once = [
-        "dbus-update-activation-environment --systemd --all &"
-      ];
+      #      exec-once = [
+      #  "dbus-update-activation-environment --systemd --all &"
+      #];
 
       monitor = [
         "eDP-2,highres,0x0,1" # My internal laptop screen
@@ -91,7 +91,11 @@ in {
         "WLR_NO_HARDWARE_CURSORS,1"
         "SDL_VIDEODRIVER,wayland"
         "CLUTTER_BACKEND,wayland"
-        "AQ_DRM_DEVICES,/dev/dri/by-path/pci-0000:c7:00.0-card:/dev/dri/by-path/pci-0000:01:00.0-card"
+        "AQ_DRM_DEVICES,/dev/dri/card2:/dev/dri/card1"
+        "AQ_MGPU_NO_DIRECT_SCANOUT,1"
+        "QT_WAYLAND_FORCE_DPI,physical" # Prevents slow font-scaling calculations
+        "QS_RENDER_SOFTWARE,0" # Force hardware acceleration for Quickshell
+        "QS_BATCH_RENDER,1" # Improves frame pacing
       ];
 
       cursor = {

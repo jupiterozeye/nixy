@@ -23,16 +23,17 @@ in {
 
   # Environment variables for better compatibility
   environment.variables = {
-    #LIBVA_DRIVER_NAME = "nvidia"; # Hardware video acceleration
+    LIBVA_DRIVER_NAME = "nvidia"; # Hardware video acceleration
     XDG_SESSION_TYPE = "wayland"; # Force Wayland
-    #GBM_BACKEND = "nvidia-drm"; # Graphics backend for Wayland
+    GBM_BACKEND = "nvidia-drm"; # Graphics backend for Wayland
     __GLX_VENDOR_LIBRARY_NAME = "nvidia"; # Use Nvidia driver for GLX
     WLR_NO_HARDWARE_CURSORS = "1"; # Fix for cursors on Wayland
     NIXOS_OZONE_WL = "1"; # Wayland support for Electron apps
     __GL_GSYNC_ALLOWED = "1"; # Enable G-Sync if available
     __GL_VRR_ALLOWED = "1"; # Enable VRR (Variable Refresh Rate)
     WLR_DRM_NO_ATOMIC = "1"; # Fix for some issues with Hyprland
-    WLR_DRM_DEVICES = "/dev/dri/by-path/pci-0000:c7:00.0-card:/dev/dri/by-path/pci-0000:01:00.0-card";
+    # WLR_DRM_DEVICES = "/dev/dri/by-path/pci-0000:c7:00.0-card:/dev/dri/by-path/pci-0000:01:00.0-card";
+
     NVD_BACKEND = "direct"; # Configuration for new driver
     MOZ_ENABLE_WAYLAND = "1"; # Wayland support for Firefox
   };

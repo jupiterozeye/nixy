@@ -16,9 +16,9 @@
 
   programs.caelestia = {
     enable = true;
-    systemd.enable = false;
+    systemd.enable = true;
     settings = {
-      services.weatherLocation = "Paris";
+      services.weatherLocation = "Amsterdam";
       general = {
         apps = {
           terminal = ["ghostty"];
