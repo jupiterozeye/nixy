@@ -17,6 +17,9 @@ in {
       "result"
       "result-*"
     ];
+    extraConfig = {
+      core.askPass = "";
+    };
     settings = {
       user.name = username;
       user.email = email;
