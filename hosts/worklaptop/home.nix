@@ -63,6 +63,8 @@
       duckdb
       opencode
       distrobox
+      direnv
+      devenv
 
       # Just cool
       peaclock

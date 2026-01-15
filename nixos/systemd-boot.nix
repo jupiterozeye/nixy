@@ -9,6 +9,7 @@
     kernelModules = ["r8168"];
     extraModulePackages = with config.boot.kernelPackages; [r8168];
     bootspec.enable = true;
+    plymouth.enable = true;
     loader = {
       efi.canTouchEfiVariables = true;
       systemd-boot = {
