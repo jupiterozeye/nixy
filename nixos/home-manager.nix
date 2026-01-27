@@ -1,9 +1,11 @@
 # Home-manager configuration for NixOS
-{inputs, ...}: {
+{inputs, pkgs, ...}: {
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
-    backupFileExtension = "hm-backup";
+    # Use a custom backup command to handle conflicts automatically
+    # This moves files to a timestamp-based backup location
+    backupCommand = "${pkgs.bash}/bin/bash -c 'mv -v \"$1\" \"$1.hm-backup-$(date +%s)\"' _";
     extraSpecialArgs = {inherit inputs;};
   };
 }

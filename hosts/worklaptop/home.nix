@@ -16,7 +16,7 @@
     #../../home/programs/git/signing.nix # Change the key or remove this file
     #../../home/programs/spicetify
     ../../home/programs/thunar
-    ../../home/programs/discord
+    #../../home/programs/discord
     ../../home/programs/nixy
     ../../home/programs/zathura
     ../../home/programs/nightshift
@@ -65,13 +65,23 @@
       distrobox
       direnv
       devenv
+      jan
+      wails
+      sillytavern
+      nsis
+      upx
+      webkitgtk_6_0
+      gtk4
+      docker-compose
 
+      steam
       # Just cool
       peaclock
       cbonsai
       pipes
       cmatrix
       fastfetch
+      moonlight-qt
 
       # Backup
     ];

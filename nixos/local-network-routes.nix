@@ -21,6 +21,7 @@
         # Add route via gateway 192.168.10.1
         # Metric 50 (lower than default 100) gives priority
         ${pkgs.iproute2}/bin/ip route add 192.168.0.0/24 via 192.168.10.1 dev "$INTERFACE" metric 50 2>/dev/null || true
+        ${pkgs.iproute2}/bin/ip route add 192.168.0.97/23 dev tailscale0 metric 40 2>/dev/null || true
       fi
     '';
   };

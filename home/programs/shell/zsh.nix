@@ -60,6 +60,13 @@ in {
 
       nix-shell = "nix-shell --command zsh";
 
+      tsu = "sudo tailscale up --reset --accept-dns=false --accept-routes=false";
+      tsd = "sudo tailscale down";
+      tss = "tailscale status";
+      tsc = "mullvad-exclude ssh jupi@100.93.214.105";
+      tscj = "mullvad-exclude ssh -N -L 8888:192.168.0.97:8888 jupi@100.93.214.105";
+      tsai = "mullvad-exclude ssh -f -N -L 8080:127.0.0.1:8080 jupi@100.93.214.105 && brave http://localhost:8080";
+
       # git
       g = "lazygit";
       ga = "git add";

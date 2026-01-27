@@ -2,6 +2,7 @@
 {
   config,
   inputs,
+  lib,
   ...
 }: let
   username = config.var.username;
@@ -30,6 +31,11 @@ in {
   services.tailscale = {
     enable = true;
     package = inputs.nixpkgs-stable.legacyPackages.x86_64-linux.tailscale;
+    extraUpFlags = [
+      "--reset"
+      "--accept-dns=false"
+      "--accept-routes=false"
+    ];
     openFirewall = true;
   };
 
