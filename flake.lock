@@ -778,11 +778,11 @@
         "nixpkgs": "nixpkgs_3"
       },
       "locked": {
-        "lastModified": 1769689211,
-        "narHash": "sha256-fy1X+BecX7irSaNPPAwuRuKOJeR6S+KvIvl++b8PGns=",
+        "lastModified": 1769695391,
+        "narHash": "sha256-bF8+16/sggSOhK7gSm1/5IYfziDf7dsxCC4aBfHYpF8=",
         "owner": "jupiterozeye",
         "repo": "its-clipped",
-        "rev": "1b9faf154974099b12bf7dd79d3fbcb67cffa455",
+        "rev": "15384d72910d6ac7ce075008e83a0bb78d9b9548",
         "type": "github"
       },
       "original": {
