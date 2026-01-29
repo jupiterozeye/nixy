@@ -3,6 +3,9 @@
     enable = true;
     commandLineArgs = [
       "--no-default-browser-check"
+      "--ozone-platform-hint=auto"
+      "--enable-features=VaapiVideoDecoder"
+      "--disable-features=UseChromeOSDirectVideoDecoder"
     ];
   };
 

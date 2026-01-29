@@ -22,6 +22,8 @@ in {
 
   services.resolved.enable = true;
 
+  services.flatpak.enable = true;
+
   system.autoUpgrade = {
     enable = autoUpgrade;
     dates = "04:00";

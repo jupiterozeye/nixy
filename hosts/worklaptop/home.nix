@@ -21,6 +21,7 @@
     ../../home/programs/zathura
     ../../home/programs/nightshift
     ../../home/programs/group/cybersecurity.nix
+    ../../home/programs/its-clipped
 
     # System (Desktop environment like stuff)
     ../../home/system/hyprland
@@ -68,11 +69,8 @@
       jan
       wails
       sillytavern
-      nsis
-      upx
-      webkitgtk_6_0
-      gtk4
       docker-compose
+      tailscale
 
       steam
       # Just cool

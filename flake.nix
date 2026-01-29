@@ -14,6 +14,8 @@
     nixcord.url = "github:kaylorben/nixcord";
     sops-nix.url = "github:Mic92/sops-nix";
     nvf.url = "github:notashelf/nvf";
+    nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.6.0";
+    its-clipped.url = "github:jupiterozeye/its-clipped";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -49,7 +51,7 @@
             }
             inputs.home-manager.nixosModules.home-manager
             inputs.stylix.nixosModules.stylix
-            ./hosts/worklaptop/configuration.nix # CHANGEME: change the path to match your host folder
+            ./hosts/worklaptop/configuration.nix
           ];
         };
       # Jack is my server
