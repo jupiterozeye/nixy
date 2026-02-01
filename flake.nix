@@ -28,6 +28,14 @@
       url = "github:caelestia-dots/cli";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    niri = {
+      url = "github:sodiboo/niri-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    noctalia = {
+      url = "github:noctalia-dev/noctalia-shell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -39,35 +47,33 @@
 
   outputs = inputs @ {nixpkgs, ...}: {
     nixosConfigurations = {
-      worklaptop =
-        nixpkgs.lib.nixosSystem {
-          modules = [
-            {
-              nixpkgs.overlays = [];
-              _module.args = {
-                inherit inputs;
-              };
-            }
-            inputs.home-manager.nixosModules.home-manager
-            inputs.stylix.nixosModules.stylix
-            ./hosts/worklaptop/configuration.nix
-          ];
-        };
-      homelaptop = 
-      	nixpkgs.lib.nixosSystem {
-	  modules = [
-	    {
-	      nixpkgs.overlays = [];
-	      _module.args = {
-	        inherit inputs;
-	      };
-	    }
-	    inputs.home-manager.nixosModules.home-manager
-	    inputes.stylix.nixosModules.stylix
-	    ./hosts/homelaptop/configuration.nix
-	  ];
-
-	};
-
+      worklaptop = nixpkgs.lib.nixosSystem {
+        modules = [
+          {
+            nixpkgs.overlays = [];
+            _module.args = {
+              inherit inputs;
+            };
+          }
+          inputs.home-manager.nixosModules.home-manager
+          inputs.stylix.nixosModules.stylix
+          ./hosts/worklaptop/configuration.nix
+        ];
+      };
+      homelaptop = nixpkgs.lib.nixosSystem {
+        modules = [
+          {
+            nixpkgs.overlays = [inputs.niri.overlays.niri];
+            _module.args = {
+              inherit inputs;
+            };
+          }
+          inputs.home-manager.nixosModules.home-manager
+          inputs.stylix.nixosModules.stylix
+          inputs.niri.nixosModules.niri
+          ./hosts/homelaptop/configuration.nix
+        ];
+      };
+    };
   };
 }

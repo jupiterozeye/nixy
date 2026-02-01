@@ -1,6 +1,7 @@
 {
   pkgs,
   config,
+  inputs,
   ...
 }: {
   imports = [
@@ -24,9 +25,8 @@
     ../../home/programs/its-clipped
 
     # System (Desktop environment like stuff)
-    ../../home/system/hyprland
-    ../../home/system/caelestia-shell
-    ../../home/system/hyprpaper
+    ../../home/system/niri
+    ../../home/system/noctalia-shell
     ../../home/system/mime
     ../../home/system/udiskie
 
@@ -83,9 +83,8 @@
     inherit (config.var) username;
     homeDirectory = "/home/" + config.var.username;
 
-    # Import a profile picture, used by the caelestia dashboard
+    # Import a profile picture
     file.".face" = {source = ./jupiter.png;};
-    file.".local/state/caelestia/wallpaper/path.txt".text = "";
 
     # Don't touch this
     stateVersion = "24.05";
