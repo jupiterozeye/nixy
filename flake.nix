@@ -40,7 +40,6 @@
   outputs = inputs @ {nixpkgs, ...}: {
     nixosConfigurations = {
       worklaptop =
-        # CHANGEME: This should match the 'hostname' in your variables.nix file
         nixpkgs.lib.nixosSystem {
           modules = [
             {
@@ -54,18 +53,21 @@
             ./hosts/worklaptop/configuration.nix
           ];
         };
-      # Jack is my server
-      jack = nixpkgs.lib.nixosSystem {
-        modules = [
-          {_module.args = {inherit inputs;};}
-          inputs.home-manager.nixosModules.home-manager
-          inputs.stylix.nixosModules.stylix
-          inputs.sops-nix.nixosModules.sops
-          inputs.nixarr.nixosModules.default
-          inputs.eleakxir.nixosModules.eleakxir
-          ./hosts/server/configuration.nix
-        ];
-      };
-    };
+      homelaptop = 
+      	nixpkgs.lib.nixosSystem {
+	  modules = [
+	    {
+	      nixpkgs.overlays = [];
+	      _module.args = {
+	        inherit inputs;
+	      };
+	    }
+	    inputs.home-manager.nixosModules.home-manager
+	    inputes.stylix.nixosModules.stylix
+	    ./hosts/homelaptop/configuration.nix
+	  ];
+
+	};
+
   };
 }
