@@ -29,6 +29,14 @@
       url = "github:caelestia-dots/cli";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    niri = {
+      url = "github:sodiboo/niri-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    noctalia = {
+      url = "github:noctalia-dev/noctalia-shell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -40,31 +48,31 @@
 
   outputs = inputs @ {nixpkgs, ...}: {
     nixosConfigurations = {
-      worklaptop =
-        # CHANGEME: This should match the 'hostname' in your variables.nix file
-        nixpkgs.lib.nixosSystem {
-          modules = [
-            {
-              nixpkgs.overlays = [];
-              _module.args = {
-                inherit inputs;
-              };
-            }
-            inputs.home-manager.nixosModules.home-manager
-            inputs.stylix.nixosModules.stylix
-            ./hosts/worklaptop/configuration.nix
-          ];
-        };
-      # Jack is my server
-      jack = nixpkgs.lib.nixosSystem {
+      worklaptop = nixpkgs.lib.nixosSystem {
         modules = [
-          {_module.args = {inherit inputs;};}
+          {
+            nixpkgs.overlays = [];
+            _module.args = {
+              inherit inputs;
+            };
+          }
           inputs.home-manager.nixosModules.home-manager
           inputs.stylix.nixosModules.stylix
-          inputs.sops-nix.nixosModules.sops
-          inputs.nixarr.nixosModules.default
-          inputs.eleakxir.nixosModules.eleakxir
-          ./hosts/server/configuration.nix
+          ./hosts/worklaptop/configuration.nix
+        ];
+      };
+      homelaptop = nixpkgs.lib.nixosSystem {
+        modules = [
+          {
+            nixpkgs.overlays = [inputs.niri.overlays.niri];
+            _module.args = {
+              inherit inputs;
+            };
+          }
+          inputs.home-manager.nixosModules.home-manager
+          inputs.stylix.nixosModules.stylix
+          inputs.niri.nixosModules.niri
+          ./hosts/homelaptop/configuration.nix
         ];
       };
     };

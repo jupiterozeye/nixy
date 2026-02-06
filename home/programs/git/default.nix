@@ -17,10 +17,8 @@ in {
       "result"
       "result-*"
     ];
-    extraConfig = {
-      core.askPass = "";
-    };
     settings = {
+      core.askPass = "";
       user.name = username;
       user.email = email;
       init.defaultBranch = "main";
