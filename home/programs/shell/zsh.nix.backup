@@ -196,30 +196,20 @@ in {
           export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/gnupg/$gnupg_path/S.gpg-agent.ssh"
         ''}
 
-        # Context shell integration - use local dev version for testing
-        # TODO: Switch back to flake version after pushing changes
-        if [ -f ~/dev/context/shell/context.zsh ]; then
-          source ~/dev/context/shell/context.zsh
-        elif [ -f ${inputs.context.packages.${pkgs.system}.default}/share/context/shell/context.zsh ]; then
-          source ${inputs.context.packages.${pkgs.system}.default}/share/context/shell/context.zsh
-        fi
-
-        # Load add-zsh-hook for hook management  
-        autoload -Uz add-zsh-hook
-
-        # Foot terminal integration functions
-        _foot_precmd() {
+        # Allow foot to pipe command output
+        function precmd {
           if ! builtin zle; then
-            print -n "\e]133;D\e\\"
+              print -n "\e]133;D\e\\"
           fi
         }
-        _foot_preexec() {
+        function preexec {
           print -n "\e]133;C\e\\"
         }
 
-        # Register foot hooks
-        add-zsh-hook precmd _foot_precmd
-        add-zsh-hook preexec _foot_preexec
+        # Context shell integration for terminal capture
+        if [ -f ${inputs.context.packages.${pkgs.system}.default}/share/context/shell/context.zsh ]; then
+          source ${inputs.context.packages.${pkgs.system}.default}/share/context/shell/context.zsh
+        fi
 
       '';
   };

@@ -22,6 +22,8 @@
     ../../home/programs/nightshift
     ../../home/programs/group/cybersecurity.nix
     ../../home/programs/its-clipped
+    ../../home/programs/context
+    #../../home/programs/kimi
 
     # System (Desktop environment like stuff)
     ../../home/system/hyprland
@@ -71,8 +73,11 @@
       sillytavern
       docker-compose
       tailscale
+      bun
+      wl-clipboard
 
       steam
+
       # Just cool
       peaclock
       cbonsai
