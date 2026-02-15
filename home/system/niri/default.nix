@@ -64,7 +64,7 @@ in {
       "Mod+Return".action = spawn "ghostty";
       "Mod+Space".action = spawn "fuzzel";
       "Super+Alt+L".action = spawn "swaylock";
-      "Super+B".acion = spawn "Brave";
+      "Mod+B".action = spawn "brave";
 
       # Window management
       "Mod+Q".action = close-window;
