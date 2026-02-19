@@ -75,6 +75,7 @@
       tailscale
       bun
       wl-clipboard
+      zed-editor
 
       steam
 
