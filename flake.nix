@@ -17,6 +17,7 @@
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.6.0";
     its-clipped.url = "github:jupiterozeye/its-clipped";
     context.url = "github:jupiterozeye/context";
+    tornado.url = "github:jupiterozeye/tornado";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";

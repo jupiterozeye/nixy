@@ -23,6 +23,7 @@
     ../../home/programs/group/cybersecurity.nix
     ../../home/programs/its-clipped
     ../../home/programs/context
+    ../../home/programs/tornado
     #../../home/programs/kimi
 
     # System (Desktop environment like stuff)
@@ -50,7 +51,7 @@
       ticktick # Todo app
       signal-desktop # Signal app, private messages
       stirling-pdf # TODO: Server version
-      calibre
+      # calibre  # Temporarily disabled - qtbase/qmake build issue in nixpkgs
       spotifywm
       p2pool
 

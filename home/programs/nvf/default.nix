@@ -34,8 +34,9 @@
               owner = "ThePrimeagen";
               repo = "99";
               rev = "master";
-              sha256 = "sha256-7ns0nVcLuJJ+5gtAGrwgYwqfR8e+gS/xySjorB+Y1J8=";
+              sha256 = "sha256-Ik5bnxDHxgv+hgjjFzWo2gp/SxjoNaXY7ddoAlzj0uQ=";
             };
+            nvimSkipModules = [ "99.editor.lsp" ];
           };
           lazy = true;
           after = ''
