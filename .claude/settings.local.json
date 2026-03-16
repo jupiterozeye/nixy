@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:gitlab.com)",
+      "WebFetch(domain:github.com)",
+      "WebSearch",
+      "Bash(gh api:*)",
+      "WebFetch(domain:deepwiki.com)",
+      "WebFetch(domain:docs.noctalia.dev)",
+      "WebFetch(domain:raw.githubusercontent.com)"
+    ]
+  }
+}

@@ -33,6 +33,7 @@
     niri = {
       url = "github:sodiboo/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.niri-unstable.url = "github:YaLTeR/niri/wip/branch";
     };
     noctalia = {
       url = "github:noctalia-dev/noctalia-shell";
@@ -52,13 +53,14 @@
       worklaptop = nixpkgs.lib.nixosSystem {
         modules = [
           {
-            nixpkgs.overlays = [];
+            nixpkgs.overlays = [inputs.niri.overlays.niri];
             _module.args = {
               inherit inputs;
             };
           }
           inputs.home-manager.nixosModules.home-manager
           inputs.stylix.nixosModules.stylix
+          inputs.niri.nixosModules.niri
           ./hosts/worklaptop/configuration.nix
         ];
       };

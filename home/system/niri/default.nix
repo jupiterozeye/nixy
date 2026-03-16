@@ -7,6 +7,8 @@
 }: let
   border-size = config.theme.border-size;
   gaps = config.theme.gaps-out;
+  active-opacity = config.theme.active-opacity;
+  inactive-opacity = config.theme.inactive-opacity;
   keyboardLayout = config.var.keyboardLayout;
 in {
   home.packages = with pkgs; [
@@ -19,6 +21,7 @@ in {
     slurp
     wl-clipboard
     brightnessctl
+    playerctl
     gnome-themes-extra
     libva
     dconf
@@ -28,6 +31,8 @@ in {
     direnv
     fuzzel
     swaylock
+    wlogout
+    swaybg
   ];
 
   programs.niri.settings = {
@@ -52,8 +57,23 @@ in {
       border.width = border-size;
     };
 
+    # TODO: Blur config requires raw KDL (programs.niri.config) since the
+    # niri-flake schema doesn't support WIP branch blur options yet.
+    # For now, just set opacity via window-rules.
+    window-rules = [
+      {
+        matches = [{is-active = true;}];
+        opacity = active-opacity;
+      }
+      {
+        matches = [{is-active = false;}];
+        opacity = inactive-opacity;
+      }
+    ];
+
     spawn-at-startup = [
       {command = ["dbus-update-activation-environment" "--systemd" "--all"];}
+      {command = ["lxqt-policykit-agent"];}
     ];
 
     binds = with config.lib.niri.actions; {
@@ -64,7 +84,12 @@ in {
       "Mod+Return".action = spawn "ghostty";
       "Mod+Space".action = spawn "fuzzel";
       "Super+Alt+L".action = spawn "swaylock";
-      "Mod+B".action = spawn "brave";
+      "Mod+B".action = spawn "mullvad-browser";
+      "Mod+E".action = spawn "thunar";
+      "Mod+P".action = spawn "bitwarden";
+      "Mod+T".action = toggle-window-floating;
+      "Mod+X".action = spawn "wlogout";
+      "Mod+N".action = spawn "noctalia" "sidebar" "toggle";
 
       # Window management
       "Mod+Q".action = close-window;
@@ -173,14 +198,37 @@ in {
       "Mod+V".action = toggle-window-floating;
 
       # Screenshots
-      "Print".action = spawn "sh" "-c" "grim -g \"$(slurp)\" ~/Pictures/Screenshots/$(date +'%Y-%m-%d_%H-%M-%S.png')";
-      "Alt+Print".action = spawn "sh" "-c" "grim -g \"$(slurp -w)\" - | tee ~/Pictures/Screenshots/$(date +'%Y-%m-%d_%H-%M-%S.png') | wl-copy";
-      "Ctrl+Print".action = spawn "sh" "-c" "grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') - | tee ~/Pictures/Screenshots/$(date +'%Y-%m-%d_%H-%M-%S.png') | wl-copy";
+      "Mod+Shift+S".action = spawn "sh" "-c" "grim -g \"$(slurp)\" - | wl-copy";
+      "Print".action = spawn "sh" "-c" "grim - | wl-copy";
+
+      # Media / Volume / Brightness
+      "XF86AudioRaiseVolume".action = spawn "sh" "-c" "wpctl set-mute @DEFAULT_AUDIO_SINK@ 0; wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+";
+      "XF86AudioLowerVolume".action = spawn "sh" "-c" "wpctl set-mute @DEFAULT_AUDIO_SINK@ 0; wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-";
+      "XF86AudioMute".action = spawn "sh" "-c" "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
+      "XF86MonBrightnessUp".action = spawn "brightnessctl" "set" "5%+";
+      "XF86MonBrightnessDown".action = spawn "brightnessctl" "set" "5%-";
+      "XF86AudioPlay".action = spawn "playerctl" "play-pause";
+      "XF86AudioNext".action = spawn "playerctl" "next";
+      "XF86AudioPrev".action = spawn "playerctl" "previous";
 
       # Exit
       "Mod+Shift+E".action = quit;
       "Ctrl+Alt+Delete".action = quit;
     };
+  };
+
+  # Wallpaper via swaybg (Stylix sets config.stylix.image)
+  systemd.user.services.swaybg = {
+    Unit = {
+      Description = "Wallpaper setter using swaybg";
+      PartOf = ["graphical-session.target"];
+      After = ["graphical-session.target"];
+    };
+    Service = {
+      ExecStart = "${pkgs.swaybg}/bin/swaybg -m fill -i ${config.stylix.image}";
+      Restart = "on-failure";
+    };
+    Install.WantedBy = ["graphical-session.target"];
   };
 
   services.cliphist = {

@@ -8,11 +8,11 @@
     ../../nixos/home-manager.nix
     ../../nixos/nix.nix
     ../../nixos/systemd-boot.nix
-    ../../nixos/sddm.nix
     ../../nixos/users.nix
     ../../nixos/utils.nix
     ../../nixos/tailscale.nix
     ../../nixos/hyprland.nix
+    ../../nixos/niri.nix
     ../../nixos/podman.nix
     ../../nixos/local-network-routes.nix
     # ../../nixos/mullvad.nix
@@ -23,6 +23,10 @@
   ];
 
   home-manager.users."${config.var.username}" = import ./home.nix;
+
+  # GDM display manager (supports both Niri and Hyprland sessions)
+  services.displayManager.gdm.enable = true;
+  services.displayManager.gdm.wayland = true;
 
   # Don't touch this
   system.stateVersion = "24.05";

@@ -28,8 +28,8 @@
 
     # System (Desktop environment like stuff)
     ../../home/system/hyprland
-    ../../home/system/caelestia-shell
-    ../../home/system/hyprpaper
+    ../../home/system/niri
+    ../../home/system/noctalia-shell
     ../../home/system/mime
     ../../home/system/udiskie
 
@@ -76,7 +76,7 @@
       tailscale
       bun
       wl-clipboard
-      zed-editor
+      claude-code
 
       steam
 
@@ -94,13 +94,45 @@
     inherit (config.var) username;
     homeDirectory = "/home/" + config.var.username;
 
-    # Import a profile picture, used by the caelestia dashboard
+    # Import a profile picture
     file.".face" = {source = ./jupiter.png;};
-    file.".local/state/caelestia/wallpaper/path.txt".text = "";
 
     # Don't touch this
     stateVersion = "24.05";
   };
 
   programs.home-manager.enable = true;
+
+  # Worklaptop-specific Niri settings
+  # NOTE: Monitor connector names may differ from Hyprland due to NVIDIA PRIME.
+  # After first boot into Niri, run `niri msg outputs` to verify and adjust.
+  programs.niri.settings.outputs = {
+    "DP-9" = {
+      mode = {width = 1920; height = 1080; refresh = 60.0;};
+      position = {x = 0; y = 0;};
+    };
+    "DP-10" = {
+      mode = {width = 1920; height = 1080; refresh = 60.0;};
+      position = {x = 1920; y = 0;};
+    };
+    "eDP-1" = {
+      mode = {width = 1920; height = 1200; refresh = 60.0;};
+      position = {x = 1920; y = 1080;};
+    };
+    "DP-8" = {
+      mode = {width = 3840; height = 2160; refresh = 60.0;};
+      position = {x = 3840; y = 0;};
+      scale = 1.5;
+    };
+  };
+
+  programs.niri.settings.environment = {
+    NIXOS_OZONE_WL = "1";
+    MOZ_ENABLE_WAYLAND = "1";
+    QT_QPA_PLATFORM = "wayland;xcb";
+    QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
+    QT_AUTO_SCREEN_SCALE_FACTOR = "1";
+    ELECTRON_OZONE_PLATFORM_HINT = "auto";
+    DISPLAY = ":0";
+  };
 }
