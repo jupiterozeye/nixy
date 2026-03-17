@@ -5,8 +5,9 @@
 }: {
   imports = [
     # Programs
-    ../../home/programs/brave
-    ../../home/programs/bitwarden
+    #../../home/programs/brave
+    ../../home/programs/mullvad-browser
+    #../../home/programs/bitwarden # Using browser extension instead (Electron 39 broken)
     ../../home/programs/ghostty
     ../../home/programs/nvf
     ../../home/programs/shell

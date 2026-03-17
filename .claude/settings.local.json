@@ -7,7 +7,14 @@
       "Bash(gh api:*)",
       "WebFetch(domain:deepwiki.com)",
       "WebFetch(domain:docs.noctalia.dev)",
-      "WebFetch(domain:raw.githubusercontent.com)"
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "WebFetch(domain:everforest.vercel.app)",
+      "Bash(nix-prefetch-url:*)",
+      "Bash(nix hash:*)",
+      "Bash(nix eval:*)",
+      "Bash(cat:*)",
+      "Bash(grep:*)",
+      "Bash(ls:*)"
     ]
   }
 }

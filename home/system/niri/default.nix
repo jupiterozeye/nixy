@@ -94,47 +94,37 @@ in {
       # Window management
       "Mod+Q".action = close-window;
 
-      # Focus movement
+      # Focus within workspace (HJKL = vim nav)
       "Mod+H".action = focus-column-left;
-      "Mod+Left".action = focus-column-left;
       "Mod+L".action = focus-column-right;
-      "Mod+Right".action = focus-column-right;
       "Mod+J".action = focus-window-down;
-      "Mod+Down".action = focus-window-down;
       "Mod+K".action = focus-window-up;
-      "Mod+Up".action = focus-window-up;
 
-      # Move columns
+      # Move columns/windows within workspace (Ctrl+HJKL)
       "Mod+Ctrl+H".action = move-column-left;
-      "Mod+Ctrl+Left".action = move-column-left;
       "Mod+Ctrl+L".action = move-column-right;
-      "Mod+Ctrl+Right".action = move-column-right;
-
-      # Move windows within column
       "Mod+Ctrl+J".action = move-window-down;
-      "Mod+Ctrl+Down".action = move-window-down;
       "Mod+Ctrl+K".action = move-window-up;
-      "Mod+Ctrl+Up".action = move-window-up;
 
-      # Focus monitor
+      # Focus monitor (Arrow keys + Shift+HJKL)
+      "Mod+Left".action = focus-monitor-left;
+      "Mod+Right".action = focus-monitor-right;
+      "Mod+Up".action = focus-monitor-up;
+      "Mod+Down".action = focus-monitor-down;
       "Mod+Shift+H".action = focus-monitor-left;
-      "Mod+Shift+Left".action = focus-monitor-left;
-      "Mod+Shift+J".action = focus-monitor-down;
-      "Mod+Shift+Down".action = focus-monitor-down;
-      "Mod+Shift+K".action = focus-monitor-up;
-      "Mod+Shift+Up".action = focus-monitor-up;
       "Mod+Shift+L".action = focus-monitor-right;
-      "Mod+Shift+Right".action = focus-monitor-right;
+      "Mod+Shift+J".action = focus-monitor-down;
+      "Mod+Shift+K".action = focus-monitor-up;
 
-      # Move column to monitor
+      # Move column to monitor (Shift+Arrow + Ctrl+Shift+HJKL)
+      "Mod+Shift+Left".action = move-column-to-monitor-left;
+      "Mod+Shift+Right".action = move-column-to-monitor-right;
+      "Mod+Shift+Up".action = move-column-to-monitor-up;
+      "Mod+Shift+Down".action = move-column-to-monitor-down;
       "Mod+Ctrl+Shift+H".action = move-column-to-monitor-left;
-      "Mod+Ctrl+Shift+Left".action = move-column-to-monitor-left;
-      "Mod+Ctrl+Shift+J".action = move-column-to-monitor-down;
-      "Mod+Ctrl+Shift+Down".action = move-column-to-monitor-down;
-      "Mod+Ctrl+Shift+K".action = move-column-to-monitor-up;
-      "Mod+Ctrl+Shift+Up".action = move-column-to-monitor-up;
       "Mod+Ctrl+Shift+L".action = move-column-to-monitor-right;
-      "Mod+Ctrl+Shift+Right".action = move-column-to-monitor-right;
+      "Mod+Ctrl+Shift+J".action = move-column-to-monitor-down;
+      "Mod+Ctrl+Shift+K".action = move-column-to-monitor-up;
 
       # Workspace switching (numbered)
       "Mod+1".action.focus-workspace = 1;
